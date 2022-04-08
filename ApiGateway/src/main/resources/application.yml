@@ -1,0 +1,13 @@
+server:
+  port: 8081
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: first_route
+          uri: http://localhost:8080
+          predicates:
+            - Path=
+            - Method=
+          filters:
+            - AddResponseHeader=X-Correlation-ID, 1234
